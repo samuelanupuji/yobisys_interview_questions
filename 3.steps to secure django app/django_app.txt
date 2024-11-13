@@ -1,0 +1,16 @@
+Q. No. 3. List key steps to secure a Django app, such as CSRF protection, XSS prevention, and securing sensitive data.
+
+
+To secure a django app, we have different protection features:
+
+1. CSRF protection: it is also known as Cross Site Request Forgery. Django provides CSRF protection by default. Ensure CsrfViewMiddleware is enabled in MIDDLEWARE settings.
+   Using {% csrf_token %} in HTML forms. This token verifies that the request comes from your site.
+
+2.Cross-Site Scripting (XSS) Prevention: using HTTP-only cookies that will prevent attackers from injecting javascript into the site.
+  Only send cookies over HTTPS, reducing the risk of cookies being intercepted.
+
+3.SQL Injection Protection: using django models will prevent us from writting sql queries which might help attackers to inject sql queries into the site.
+  Always use Django’s ORM for database interactions rather than raw SQL. The ORM escapes parameters to prevent injection.
+
+4.Clickjacking Protection: Django provides built-in middleware, XFrameOptionsMiddleware, to protect against clickjacking attacks by setting the X-Frame-Options HTTP header.
+ 
